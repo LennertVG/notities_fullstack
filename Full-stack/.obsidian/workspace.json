@@ -1,0 +1,239 @@
+{
+  "main": {
+    "id": "9789a26eb8fcd3d2",
+    "type": "split",
+    "children": [
+      {
+        "id": "933c293d9ec7ef12",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7a4f828db5686362",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Examen ARCHITECTUUR FRONT-END.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "db1819b697c5aebc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CURSUSSEN Front-End.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "e0a458511b352a5d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Docker.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "f85bc761ce5050da",
+    "type": "split",
+    "children": [
+      {
+        "id": "b039a76502a96091",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4a0361041d7a7f23",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "9cbe030b9f4bd5d8",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "c5cc011be5b8ea4a",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          },
+          {
+            "id": "61143716a17282c4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Exameninhouden/INHOUD EXAMEN DATABASES.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "right": {
+    "id": "958c3fded9a52e2c",
+    "type": "split",
+    "children": [
+      {
+        "id": "a03987f8ae4a9e3e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ea4ffde441251fcc",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Docker.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "11fede167e8f877e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Docker.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "898293eeaebdb4b9",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "0de58367cfc48480",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Docker.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "e0a458511b352a5d",
+  "lastOpenFiles": [
+    "Architectuur front-end.md",
+    "Docker.md",
+    "CURSUSSEN Front-End.md",
+    "Examen ARCHITECTUUR FRONT-END.md",
+    "frontend-architecture.pdf",
+    "Completed.md",
+    "Leren programmeren/Basis programmeren.md",
+    "Advanced Front-End.md",
+    "Untitled.canvas",
+    "OOP concepts.md",
+    "Advanced Front-End oef 3 -  array methods.md",
+    "custom API.md",
+    "Pasted image 20231201095819.png",
+    "Pasted image 20231201094134.png",
+    "Pasted image 20231129102914.png",
+    "Pasted image 20231129102821.png",
+    "Pasted image 20231129102512.png",
+    "Pasted image 20231129102139.png",
+    "Pasted image 20231129102039.png",
+    "Pasted image 20231129100943.png",
+    "Pasted image 20231129100114.png",
+    "EXAMEN ADVANCED FRONT-END.md",
+    "Pasted image 20231128125425.png",
+    "Advanced Front-End Oef 2 - Christmas.md",
+    "Advanced Front-End Oef 1 - cars.md",
+    "js_classes_exercise.html",
+    "Cursussen.md",
+    "Angular.md",
+    "TypeScript.md",
+    "JS Advanced & Typescript.pdf",
+    "JS Advanced & OOP concepts 1.pdf",
+    "syntrapxl_javascript_basic.docx.pdf",
+    "CSS.pdf",
+    "subproblems.html",
+    "SYNTRA_BASIS_PROG.docx.pdf",
+    "JS Advanced & OOP concepts.pdf",
+    "Ondernemerschap/Ondernemerschap.md",
+    "Ondernemerschap/EINDPROEF ONDERNEMERSCHAP.md",
+    "Startersplan Ondernemerschap.md",
+    "Javascript Basis.md",
+    "GROEPSWERK 1 FRONT-END.md",
+    "localStorage.md",
+    "Opdracht ToDo API.md",
+    "opdracht movies namiddag.md",
+    "RestAPI.md",
+    "Consumeren API.md",
+    "CSS Frameworks",
+    "Untitled 1.canvas"
+  ]
+}

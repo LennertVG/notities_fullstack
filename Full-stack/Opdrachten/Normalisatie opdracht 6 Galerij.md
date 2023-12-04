@@ -1,0 +1,6 @@
+#Opdrachten #Databases 
+![[Pasted image 20231013091911.png]]
+![[Pasted image 20231013094001.png]]
+- SPLITS LAST NAME AND FIRST NAME NOG!
+- COMBINE STREETNAME AND STREETNR
+- 

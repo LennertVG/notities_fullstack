@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js_classes_exercise</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="some-true--exercises-to-practice-working-with-classes-in-javascript">Some “true ;)” exercises to practice working with classes in JavaScript:</h1>
+<p><img src="https://www.freecodecamp.org/news/content/images/2019/07/panel-1-1.png" alt="The Best JavaScript Meme I've Ever Seen, Explained in detail"></p>
+<ol>
+<li>
+<p><strong>Basic Class Definition:</strong> Create a class named <code>Car</code> with properties <code>make</code>, <code>model</code>, and <code>year</code>. Add a method called <code>displayInfo</code> that prints out the car’s information.</p>
+</li>
+<li>
+<p><strong>Constructor and Instance Methods:</strong> Extend the <code>Car</code> class. Add a constructor that initializes the properties. Include an instance method named <code>startEngine</code> that logs a message indicating the engine has started.</p>
+</li>
+<li>
+<p><strong>Inheritance:</strong> Create a class <code>SportsCar</code> that extends the <code>Car</code> class. Add a property <code>topSpeed</code> to the <code>SportsCar</code> class. Override the <code>displayInfo</code> method to include the top speed.</p>
+</li>
+<li>
+<p><strong>Encapsulation1:</strong> Modify the <code>Car</code> class to include a private property for the <code>year</code> property. The getYear method should return the year, and the setYear method should validate that the year is a positive number.</p>
+</li>
+<li>
+<p><strong>Encapsulation2:</strong> Create a class <code>Race</code> that has a private property <code>participants</code> (an array of <code>Car</code> instances). Add a method <code>addParticipant</code> to add a car to the race.</p>
+</li>
+<li>
+<p><strong>Polymorphism:</strong> Implement a method called <code>race</code> in both the <code>Car</code> and <code>SportsCar</code> classes. The implementation should log a message specific to each class.</p>
+</li>
+</ol>
+<h2 id="possible-solutions">Possible solutions</h2>
+<ol>
+<li><strong>Basic Class Definition:</strong></li>
+</ol>
+<pre class=" language-php"><code class="prism  language-php"><span class="token keyword">class</span> <span class="token class-name">Car</span> <span class="token punctuation">{</span>
+      <span class="token function">constructor</span><span class="token punctuation">(</span>make<span class="token punctuation">,</span> model<span class="token punctuation">,</span> year<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        this<span class="token punctuation">.</span>make <span class="token operator">=</span> make<span class="token punctuation">;</span>
+        this<span class="token punctuation">.</span>model <span class="token operator">=</span> model<span class="token punctuation">;</span>
+        this<span class="token punctuation">.</span>year <span class="token operator">=</span> year<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    
+      <span class="token function">displayInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>`$<span class="token punctuation">{</span>this<span class="token punctuation">.</span>year<span class="token punctuation">}</span> $<span class="token punctuation">{</span>this<span class="token punctuation">.</span>make<span class="token punctuation">}</span> $<span class="token punctuation">{</span>this<span class="token punctuation">.</span>model<span class="token punctuation">}</span>`<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ol start="2">
+<li><strong>Constructor and Instance Methods:</strong></li>
+</ol>
+<pre class=" language-php"><code class="prism  language-php"><span class="token keyword">class</span> <span class="token class-name">Car</span> <span class="token punctuation">{</span>
+      <span class="token function">constructor</span><span class="token punctuation">(</span>make<span class="token punctuation">,</span> model<span class="token punctuation">,</span> year<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        this<span class="token punctuation">.</span>make <span class="token operator">=</span> make<span class="token punctuation">;</span>
+        this<span class="token punctuation">.</span>model <span class="token operator">=</span> model<span class="token punctuation">;</span>
+        this<span class="token punctuation">.</span>year <span class="token operator">=</span> year<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    
+      <span class="token function">displayInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>`$<span class="token punctuation">{</span>this<span class="token punctuation">.</span>year<span class="token punctuation">}</span> $<span class="token punctuation">{</span>this<span class="token punctuation">.</span>make<span class="token punctuation">}</span> $<span class="token punctuation">{</span>this<span class="token punctuation">.</span>model<span class="token punctuation">}</span>`<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    
+      <span class="token function">startEngine</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Engine started!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ol start="3">
+<li><strong>Inheritance:</strong></li>
+</ol>
+<pre class=" language-php"><code class="prism  language-php"><span class="token keyword">class</span> <span class="token class-name">SportsCar</span> <span class="token keyword">extends</span> <span class="token class-name">Car</span> <span class="token punctuation">{</span>
+      <span class="token function">constructor</span><span class="token punctuation">(</span>make<span class="token punctuation">,</span> model<span class="token punctuation">,</span> year<span class="token punctuation">,</span> topSpeed<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">super</span><span class="token punctuation">(</span>make<span class="token punctuation">,</span> model<span class="token punctuation">,</span> year<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        this<span class="token punctuation">.</span>topSpeed <span class="token operator">=</span> topSpeed<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    
+      <span class="token function">displayInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        super<span class="token punctuation">.</span><span class="token function">displayInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>`Top Speed<span class="token punctuation">:</span> $<span class="token punctuation">{</span>this<span class="token punctuation">.</span>topSpeed<span class="token punctuation">}</span> mph`<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>By calling <code>super.displayInfo();</code>, you are essentially saying, “First, execute the <code>displayInfo</code> method of the parent class (<code>Car</code>), and then execute the additional code I’ve written in the <code>displayInfo</code> method of the <code>SportsCar</code> class.” This ensures that you retain the functionality of the parent class while extending it in the child class.</p>
+<ol start="4">
+<li><strong>Encapsulation 1:</strong></li>
+</ol>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">class</span> <span class="token class-name">Car</span> <span class="token punctuation">{</span>
+     <span class="token function">constructor</span><span class="token punctuation">(</span>make<span class="token punctuation">,</span> model<span class="token punctuation">,</span> year<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token keyword">this</span><span class="token punctuation">.</span>make <span class="token operator">=</span> make<span class="token punctuation">;</span>
+       <span class="token keyword">this</span><span class="token punctuation">.</span>model <span class="token operator">=</span> model<span class="token punctuation">;</span>
+       <span class="token keyword">this</span><span class="token punctuation">.</span>#year <span class="token operator">=</span> year<span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+   
+     <span class="token function">getYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>#year<span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+   
+     <span class="token function">setYear</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token keyword">if</span> <span class="token punctuation">(</span>value <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token keyword">this</span><span class="token punctuation">.</span>#year <span class="token operator">=</span> value<span class="token punctuation">;</span>
+       <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Invalid year'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token punctuation">}</span>
+     <span class="token punctuation">}</span>
+   
+     <span class="token function">displayInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>#year<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>make<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>model<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ol start="5">
+<li><strong>Encapsulation 2:</strong></li>
+</ol>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">class</span> <span class="token class-name">Race</span> <span class="token punctuation">{</span>
+     <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token keyword">this</span><span class="token punctuation">.</span>#participants <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+   
+     <span class="token function">addParticipant</span><span class="token punctuation">(</span>car<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token keyword">this</span><span class="token punctuation">.</span>#participants<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>car<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span>
+</code></pre>
+<ol start="6">
+<li><strong>Polymorphism:</strong></li>
+</ol>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token keyword">class</span> <span class="token class-name">Car</span> <span class="token punctuation">{</span>
+     <span class="token comment">// ... (previous code)</span>
+   
+     <span class="token function">race</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Car is racing!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span>
+   
+   <span class="token keyword">class</span> <span class="token class-name">SportsCar</span> <span class="token keyword">extends</span> <span class="token class-name">Car</span> <span class="token punctuation">{</span>
+     <span class="token comment">// ... (previous code)</span>
+   
+     <span class="token function">race</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Sports car is racing at top speed!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</code></pre>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token punctuation">(</span>C<span class="token punctuation">)</span> <span class="token keyword">private</span> <span class="token function-variable function">SyntraPXL</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">2023</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token string">"De Nittis Massimo"</span>
+</code></pre>
+</div>
+</body>
+
+</html>
