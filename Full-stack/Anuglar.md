@@ -21,6 +21,9 @@ Dan kunnen we die onder de localhost vinden
 => hebben eigen CSS, HTML, TS (class @decorator -> selector:app-myComponent)
 => app.component.html -> `<app-mycomponent></app-mycomponent>`
 
+in de app-folder komen alle elementen
+in de assets-folder komen alle static items gelijk afbeeldingen enzo
+
 `ng add @ng-bootstrap/ng-bootstrap` (add bootstrap with angular) 
 
 `#template variables`
