@@ -1,6 +1,6 @@
 #architectuur #modules 
 [[Examen ARCHITECTUUR FRONT-END]]
-
+[[Completed]]
 We gaan onderdelen van de applicatie scheiden
 - Verschillende lagen
 	- Presentatie => UI-componenten (lay-out)
@@ -21,3 +21,4 @@ MoSCoW
 
 [[Docker]]
 
+[[Design Patterns]]

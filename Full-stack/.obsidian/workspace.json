@@ -8,43 +8,43 @@
         "type": "tabs",
         "children": [
           {
-            "id": "7a4f828db5686362",
+            "id": "1f3ec9aea2387b17",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Examen ARCHITECTUUR FRONT-END.md",
+                "file": "Stage/Stage.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "db1819b697c5aebc",
+            "id": "3a44f89ae52ae598",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CURSUSSEN Front-End.md",
+                "file": "Anuglar.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "e0a458511b352a5d",
+            "id": "b2aebb56399cc66f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Docker.md",
+                "file": "Ondernemerschap/Ondernemerschap.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -124,7 +124,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Docker.md",
+                "file": "Anuglar.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -141,7 +141,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Docker.md",
+                "file": "Anuglar.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -164,7 +164,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Docker.md"
+                "file": "Anuglar.md"
               }
             }
           }
@@ -185,12 +185,32 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e0a458511b352a5d",
+  "active": "3a44f89ae52ae598",
   "lastOpenFiles": [
-    "Architectuur front-end.md",
-    "Docker.md",
+    "Javascript Basis.md",
+    "RestAPI.md",
+    "Consumeren API.md",
+    "Opdracht ToDo API.md",
+    "Ondernemerschap/Ondernemerschap.md",
+    "Anuglar.md",
+    "Stage/Stage.md",
     "CURSUSSEN Front-End.md",
+    "Angular_Syntra_1_15.pdf",
+    "motivatiebrief Fenego.md",
+    "motivatiebrief Expliciet.md",
+    "Pasted image 20231206100816.png",
+    "Javascript Frameworks.md",
+    "Architectuur front-end.md",
     "Examen ARCHITECTUUR FRONT-END.md",
+    "Design Patterns.md",
+    "Pasted image 20231205124015.png",
+    "Docker.md",
+    "Pasted image 20231204153140.png",
+    "Pasted image 20231204153130.png",
+    "Pasted image 20231204151601.png",
+    "Pasted image 20231204151531.png",
+    "Pasted image 20231204151506.png",
+    "Pasted image 20231204151431.png",
     "frontend-architecture.pdf",
     "Completed.md",
     "Leren programmeren/Basis programmeren.md",
@@ -201,21 +221,12 @@
     "custom API.md",
     "Pasted image 20231201095819.png",
     "Pasted image 20231201094134.png",
-    "Pasted image 20231129102914.png",
-    "Pasted image 20231129102821.png",
-    "Pasted image 20231129102512.png",
-    "Pasted image 20231129102139.png",
-    "Pasted image 20231129102039.png",
-    "Pasted image 20231129100943.png",
-    "Pasted image 20231129100114.png",
     "EXAMEN ADVANCED FRONT-END.md",
-    "Pasted image 20231128125425.png",
     "Advanced Front-End Oef 2 - Christmas.md",
     "Advanced Front-End Oef 1 - cars.md",
     "js_classes_exercise.html",
     "Cursussen.md",
     "Angular.md",
-    "TypeScript.md",
     "JS Advanced & Typescript.pdf",
     "JS Advanced & OOP concepts 1.pdf",
     "syntrapxl_javascript_basic.docx.pdf",
@@ -223,17 +234,6 @@
     "subproblems.html",
     "SYNTRA_BASIS_PROG.docx.pdf",
     "JS Advanced & OOP concepts.pdf",
-    "Ondernemerschap/Ondernemerschap.md",
-    "Ondernemerschap/EINDPROEF ONDERNEMERSCHAP.md",
-    "Startersplan Ondernemerschap.md",
-    "Javascript Basis.md",
-    "GROEPSWERK 1 FRONT-END.md",
-    "localStorage.md",
-    "Opdracht ToDo API.md",
-    "opdracht movies namiddag.md",
-    "RestAPI.md",
-    "Consumeren API.md",
-    "CSS Frameworks",
     "Untitled 1.canvas"
   ]
 }

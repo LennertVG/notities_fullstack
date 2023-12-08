@@ -18,7 +18,7 @@ function functionName () {
 console.log(obj.name)
 ```
 oude versie (ter illustratie van block)
-```
+``` javascript
 fetch('url').then(
 	function (res) {
 		return res.json();

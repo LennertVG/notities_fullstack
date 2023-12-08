@@ -132,6 +132,13 @@
         "a": 1,
         "rgb": 16711901
       }
+    },
+    {
+      "query": "tag:#javaFrameworks",
+      "color": {
+        "a": 1,
+        "rgb": 16336968
+      }
     }
   ],
   "collapse-display": true,
@@ -144,6 +151,6 @@
   "repelStrength": 20,
   "linkStrength": 1,
   "linkDistance": 30,
-  "scale": 1.3508789909145502,
-  "close": false
+  "scale": 0.28791780476347645,
+  "close": true
 }

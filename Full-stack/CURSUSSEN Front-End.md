@@ -13,4 +13,6 @@ Advanced Front-End![[JS Advanced & OOP concepts 1.pdf]]
 
 ![[JS Advanced & Typescript.pdf]]
 
-Architectuur Front-End![[frontend-architecture.pdf]]
+Architectuur Front-End![[frontend-architecture.pdf]
+![[Angular_Syntra_1_15.pdf]]
+

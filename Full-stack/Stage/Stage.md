@@ -20,4 +20,15 @@
 	- Software-developer
 - Contract!
 	- Cursistenportaal
-- 
+
+ONZE SKILLS TEGEN DAN
+- HTML/CSS
+- JS, Typescript, OOP
+- DB Normalisation & MYSQL
+- Rest API's, Auth
+- Angular
+- PHP (basis, geen frameworks)
+- SCRUM/GIT/GITHUB
+
+[[motivatiebrief Expliciet]]
+[[motivatiebrief Fenego]]
