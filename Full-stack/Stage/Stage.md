@@ -29,6 +29,3 @@ ONZE SKILLS TEGEN DAN
 - Angular
 - PHP (basis, geen frameworks)
 - SCRUM/GIT/GITHUB
-
-[[motivatiebrief Expliciet]]
-[[motivatiebrief Fenego]]
