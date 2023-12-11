@@ -125,3 +125,42 @@ Voor het itereren van de array kunnen we dan de volgende code gebruiken in home.
 	}
 ```
 Result: ![[Pasted image 20231208143500.png]]
+- de "track todo.id" is een verplichting
+	- De track is een soort index, de for-loop gaat de lijst doorgaan
+
+{{ }} => String Interpolation: weergeven van een tekst vanuit een component uit onze Angular
+
+Minimale functionaliteit die moet kunnen toegevoegd worden aan een tabel!
+CRUD
+- Create
+- Read
+- Update
+- Delete
+BREAD
+- Browse
+- Read
+- Edit
+- Add
+- Delete
+
+HTTP-requests
+- POST
+- PUT
+- PATCH
+- GET
+- DELETE
+put vs patch => Patch past kleine dingen aan, put vervangt de waarden van het hele object!
+
+API Endpoints => Terminologie aan het einde van de API-url  (vb.  /Posts ; /Todos ; /id)
+
+Angular Directives => bijv @if en @for ; zal iets itereren of individuele values targeten
+
+Pagination is het gedeeltelijk inladen van een dataset
+- Denk aan een aantal paginas waarbij je 50 posts ziet en een knop onderaan hebt om het volgende deel van de data in te laden (bijv door nummertjes vanonder)
+
+If you use insomnia you can use the "generate client code"-button to get the code
+![[Pasted image 20231211101114.png]]
+
+LocalStorage gaat gebruikt worden voor tokens te maken => Ingelogd blijven bijvoorbeeld
+
+If you want to use pipe operators => add the common module
