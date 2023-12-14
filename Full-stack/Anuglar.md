@@ -164,3 +164,87 @@ If you use insomnia you can use the "generate client code"-button to get the cod
 LocalStorage gaat gebruikt worden voor tokens te maken => Ingelogd blijven bijvoorbeeld
 
 If you want to use pipe operators => add the common module
+
+UPDATE en DELETE hebben id nodig in URL in HTTP-requests
+
+POST en GET hebben er geen nodig in de URL
+
+PUT vernietigt alles in de array en vervangt wat meegegeven wordt (shotgun)
+PATCH vervangt enkel de waarden meegegeven (sniper)
+
+Interfaces are a TypeScript for defining the shape of an Object
+BESTAAN ENKEL BIJ COMPILING
+```Typescript
+interface MyUsers {
+id: number;
+name: string;
+password: string;
+}
+```
+Deze custom type geeft aan dat een user een object moet zijn met een id wat een nummer is, een naam die een string is, en een passwoord dat een string is
+=> dit wordt gebruikt voor typechecking
+
+via de angular CLI is de syntax voor een interface
+`ng generate interface interfaceNaam.interface`
+=> Met de angular interfaces moet je ze importeren in je TypeScript file
+voorbeeld:
+```Typescript
+import {Env} from '.../env.interface'
+```
+```Typescript
+export interface Env {
+	production: boolean;
+	api: string;
+	version?: string;
+}
+```
+``` Typescript
+config: Env = {
+	production: false,
+	api: 'http://localhost:3000/'
+	version: '1.0.0'
+}
+```
+=> Het vraagteken bij version geeft aan dat die optional is, er is geen probleem als de version niet meegegeven is
+
+alternative message prompt: toasts
+[Demonstration](https://ngx-toastr.vercel.app/)
+[installation](https://www.npmjs.com/package/ngx-toastr)
+
+Je kan bepaalde services en methods beschikbaar maken in meerdere componenten
+=> Maak folder "shared" (mag ook andere naam maar liever dit)
+=> gebruik in de "shared" folder `ng g s users` 
+=> Maak je shared method
+vb: 
+```Typescript
+	constructor ( ) { }
+
+	url: string='http://localhost:3000'
+	getUsers() {
+		return fetch(this.url)
+		.then(res => res.json())
+	}
+}
+```
+![[Pasted image 20231213094433.png]]
+(zie ook code Massimo)
+=> dan ga je naar je component.ts van het element waar je die service wilt gebruiken
+=> 
+```typescript
+//bij imports voeg je dan de module toe
+import {usersService} from '../shared/users.service';
+import {MyUsers} frrom '../my-users.interface';
+
+//in de typescript van het component kun je die methods enzo dan aanspreken
+users: MyUsers [] = []
+apiurl = this.usersService.url
+ngOnInit(){
+	this.usersService.getUsers().then(data => {
+		this.users = data
+	})
+}
+```
+dit doe je gewoonlijk voor elke databasetabel  als je met grotere apps bezig bent
+
+[[Login service]]
+[[Echte RestAPI]]
