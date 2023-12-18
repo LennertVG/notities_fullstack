@@ -248,3 +248,6 @@ dit doe je gewoonlijk voor elke databasetabel  als je met grotere apps bezig ben
 
 [[Login service]]
 [[Echte RestAPI]]
+[[Mailing]]
+
+[[Oefening 1 Angular]]

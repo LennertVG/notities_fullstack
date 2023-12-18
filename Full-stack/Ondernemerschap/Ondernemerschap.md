@@ -10,6 +10,8 @@
 			- Detail van de investering/het idee en de manier waarop
 		- Financieel luik
 			- d
+OMZETPROGNOSE
+=> aantal dagen x aantal weken x geschat bedrag per dag
 [BOIP => Bescherming van productnaam](https://www.boip.int/nl)
 
 
