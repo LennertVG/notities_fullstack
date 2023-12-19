@@ -1,2 +1,2 @@
 #modules #JavaFrameworks
-[[Anuglar]]
+[[Angular]]

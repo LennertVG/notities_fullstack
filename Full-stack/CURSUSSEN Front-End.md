@@ -16,3 +16,5 @@ Advanced Front-End![[JS Advanced & OOP concepts 1.pdf]]
 Architectuur Front-End![[frontend-architecture.pdf]
 ![[Angular_Syntra_1_15.pdf]]
 
+![[js_angular_guard_login (1).html]]
+

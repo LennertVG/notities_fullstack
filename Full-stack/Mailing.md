@@ -1,3 +1,4 @@
+#JavaFrameworks 
 SMTP
 - Simple 
 - Mail 
@@ -9,3 +10,5 @@ DKIM
 - Identified
 - Mail
 
+Sendgrid, Mailersend, mailchimp
+- Email-provider API's

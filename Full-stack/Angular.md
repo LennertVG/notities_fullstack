@@ -26,6 +26,8 @@ in de assets-folder komen alle static items gelijk afbeeldingen enzo
 
 `ng add @ng-bootstrap/ng-bootstrap` (add bootstrap with angular) 
 
+when cloning an angular app => npm install
+
 `#template variables`
 
 `[(NG Model)]` => een banana in a box, een combinatie van attribute en event binding
@@ -246,8 +248,9 @@ ngOnInit(){
 ```
 dit doe je gewoonlijk voor elke databasetabel  als je met grotere apps bezig bent
 
-[[Login service]]
 [[Echte RestAPI]]
 [[Mailing]]
 
 [[Oefening 1 Angular]]
+
+[[Guards & Authorization]]

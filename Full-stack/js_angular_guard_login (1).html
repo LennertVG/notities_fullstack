@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js_angular_guard_login</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_SharedWithUsers msdt:dt="string">Full Stack Developer - VDO 2023 - 09-DAB-2023-00094 Members</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_SharedWithUsers>
+<mso:SharedWithUsers msdt:dt="string">7;#Full Stack Developer - VDO 2023 - 09-DAB-2023-00094 Members</mso:SharedWithUsers>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="in-angular-a-login-system-often-involves-the-use-of-guards-to-control-access-to-different-parts-of-an-application.-guards-are-classes-that-implement-the-canactivate-interface-and-they-are-used-to-protect-routes-based-on-certain-conditions.-heres-a-high-level-explanation-of-the-key-concepts-in-an-angular-login-system-using-guards">In Angular, a login system often involves the use of guards to control access to different parts of an application. Guards are classes that implement the <code>CanActivate</code> interface, and they are used to protect routes based on certain conditions. Here’s a high-level explanation of the key concepts in an Angular login system using guards:</h2>
+<p><img src="https://i0.wp.com/blog.knoldus.com/wp-content/uploads/2021/09/ang-routes-Guards.png?fit=546%2C269&amp;ssl=1" alt="Angular Routing Guards: Understanding canActivate Guard (Part-2) Angular"></p>
+<ol>
+<li>
+<p><strong>AuthGuard:</strong></p>
+<ul>
+<li>The <code>AuthGuard</code> is a common type of guard used to protect routes that require authentication. It checks whether the user is logged in or not.</li>
+<li>If the user is authenticated, the guard allows access to the requested route. If not, it may redirect the user to a login page or prevent access.</li>
+</ul>
+</li>
+<li>
+<p><strong>Route Protection:</strong></p>
+<ul>
+<li>Guards are typically applied to specific routes in the Angular application’s routing configuration. You specify which guards should be executed for each route, determining if the user can access it.</li>
+</ul>
+</li>
+<li>
+<p><strong>Login Component:</strong></p>
+<ul>
+<li>This is the component where users enter their credentials to log in. After successful login, the authentication service updates the user’s status, indicating that they are logged in.</li>
+</ul>
+</li>
+<li>
+<p><strong>Authentication Service:</strong></p>
+<ul>
+<li>The authentication service is responsible for managing the user’s authentication status. It typically provides methods like <code>login()</code>, <code>logout()</code>, and <code>isLoggedIn()</code> that the login component and guards use.</li>
+</ul>
+</li>
+<li>
+<p><strong>Router Events:</strong></p>
+<ul>
+<li>Angular’s router emits events during navigation. Guards can subscribe to these events, allowing dynamic decision-making based on the navigation state.</li>
+</ul>
+</li>
+<li>
+<p><strong>Redirects:</strong></p>
+<ul>
+<li>When a user tries to access a protected route without being authenticated, guards can redirect them to a login page or another appropriate location.</li>
+</ul>
+</li>
+<li>
+<p><strong>User Authentication State:</strong></p>
+<ul>
+<li>Guards often rely on the authentication state stored in the authentication service. This state could be a simple boolean flag indicating whether the user is authenticated or more detailed information about the user.</li>
+</ul>
+</li>
+<li>
+<p><strong>Lazy Loading and Feature Modules:</strong></p>
+<ul>
+<li>In larger applications, guards are crucial when working with lazy-loaded modules. They ensure that the necessary conditions are met before loading a module, protecting sensitive sections of the application.</li>
+</ul>
+</li>
+</ol>
+<h2 id="lets-get-to-work">Let’s get to work</h2>
+<p><img src="https://miro.medium.com/v2/resize:fit:1000/1*mSdAWJ4H6N-OmLnfec7_MQ.jpeg" alt="Angular Route Guards for Authentication | by Dulanka Karunasena | Level Up  Coding"></p>
+<h3 id="the-login-component">The Login component</h3>
+<pre><code>ng generate component login
+</code></pre>
+<pre class=" language-html"><code class="prism  language-html"><span class="token comment">&lt;!-- login.component.html --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span>  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span>  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>row<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span>  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>col-md-12<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>Login<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>form-control<span class="token punctuation">"</span></span>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span>  <span class="token attr-name">[(ngModel)]</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>username<span class="token punctuation">"</span></span>  <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Username<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>form-control<span class="token punctuation">"</span></span>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span>  <span class="token attr-name">[(ngModel)]</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span>  <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Password<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span>  <span class="token attr-name">(click)</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>onSubmit()<span class="token punctuation">"</span></span>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Login<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span>  <span class="token attr-name">(click)</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>logout()<span class="token punctuation">"</span></span>  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Logout<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<pre class=" language-js"><code class="prism  language-js"><span class="token comment">// src/app/login/login.component.ts</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span>  <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> UserService <span class="token punctuation">}</span> <span class="token keyword">from</span>  <span class="token string">'../shared/user.service'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> FormsModule <span class="token punctuation">}</span> <span class="token keyword">from</span>  <span class="token string">'@angular/forms'</span><span class="token punctuation">;</span>
+
+@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	selector<span class="token punctuation">:</span> <span class="token string">'app-login'</span><span class="token punctuation">,</span>
+	standalone<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+	imports<span class="token punctuation">:</span> <span class="token punctuation">[</span>FormsModule<span class="token punctuation">]</span><span class="token punctuation">,</span>
+	templateUrl<span class="token punctuation">:</span> <span class="token string">'./login.component.html'</span><span class="token punctuation">,</span>
+	styleUrl<span class="token punctuation">:</span> <span class="token string">'./login.component.css'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span>  <span class="token keyword">class</span>  <span class="token class-name">LoginComponent</span> <span class="token punctuation">{</span>
+	username<span class="token operator">!</span><span class="token punctuation">:</span>  string<span class="token punctuation">;</span>
+	password<span class="token operator">!</span><span class="token punctuation">:</span>  string<span class="token punctuation">;</span>
+	<span class="token function">constructor</span><span class="token punctuation">(</span><span class="token keyword">private</span>  userService<span class="token punctuation">:</span>  UserService<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+	<span class="token comment">// Let's go wild and write some async sh!t</span>
+	<span class="token keyword">async</span> <span class="token function">onSubmit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">const</span>  token  <span class="token operator">=</span>  <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span>userService<span class="token punctuation">.</span><span class="token function">login</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>username<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>password<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>token<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token comment">// Store token in local storage</span>
+			localStorage<span class="token punctuation">.</span><span class="token function">setItem</span><span class="token punctuation">(</span><span class="token string">'token'</span><span class="token punctuation">,</span> token<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token comment">// Redirect to protected component</span>
+			<span class="token comment">// ...</span>
+			<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+				<span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'Invalid username or password'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+
+<span class="token comment">// logout method</span>
+	<span class="token function">logout</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	localStorage<span class="token punctuation">.</span><span class="token function">removeItem</span><span class="token punctuation">(</span><span class="token string">'token'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="the-userservice...">The userService…</h3>
+<pre><code>ng generate service shared/user
+</code></pre>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Injectable <span class="token punctuation">}</span> <span class="token keyword">from</span>  <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
+
+@<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+providedIn<span class="token punctuation">:</span> <span class="token string">'root'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span>  <span class="token keyword">class</span>  <span class="token class-name">UserService</span> <span class="token punctuation">{</span>
+	
+	<span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+	<span class="token comment">// Dummy users wich we can replace with actual api called users</span>
+	users <span class="token operator">=</span> <span class="token punctuation">[</span>
+	<span class="token punctuation">{</span> id<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> username<span class="token punctuation">:</span> <span class="token string">'johndoe'</span><span class="token punctuation">,</span> password<span class="token punctuation">:</span> <span class="token string">'password'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">{</span> id<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> username<span class="token punctuation">:</span> <span class="token string">'janedoe'</span><span class="token punctuation">,</span> password<span class="token punctuation">:</span> <span class="token string">'password'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+	<span class="token comment">// Returns all users</span>
+
+	<span class="token function">getUsers</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// just for demo purposes - here we would perform an api call</span>
+		<span class="token keyword">return</span>  <span class="token keyword">this</span><span class="token punctuation">.</span>users<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token comment">// Checks user credentials and returns a valid token or null</span>
+	<span class="token keyword">async</span>  <span class="token function">login</span><span class="token punctuation">(</span>username<span class="token punctuation">:</span>  string<span class="token punctuation">,</span> password<span class="token punctuation">:</span>  string<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">let</span> user <span class="token operator">=</span>  <span class="token keyword">this</span><span class="token punctuation">.</span>users<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">(</span>u<span class="token punctuation">)</span>  <span class="token operator">=&gt;</span> u<span class="token punctuation">.</span>username  <span class="token operator">===</span> username<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>user <span class="token operator">||</span> user<span class="token punctuation">.</span>password  <span class="token operator">!==</span> password<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">return</span>  <span class="token keyword">null</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">return</span> user<span class="token punctuation">.</span>id<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="the-big-guard-man">The big “guard” man</h3>
+<pre><code>ng generate guard auth
+</code></pre>
+<pre class=" language-js"><code class="prism  language-js"><span class="token comment">// auth.guard.ts</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> ActivatedRouteSnapshot<span class="token punctuation">,</span> CanActivateFn<span class="token punctuation">,</span> RouterStateSnapshot<span class="token punctuation">,</span> Router <span class="token punctuation">}</span> <span class="token keyword">from</span>  <span class="token string">'@angular/router'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span>  <span class="token keyword">const</span>  authGuard<span class="token punctuation">:</span>  <span class="token function-variable function">CanActivateFn</span>  <span class="token operator">=</span>  <span class="token punctuation">(</span>route<span class="token punctuation">:</span>  ActivatedRouteSnapshot<span class="token punctuation">,</span> state<span class="token punctuation">:</span>  RouterStateSnapshot<span class="token punctuation">)</span>  <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	<span class="token keyword">const</span>  token  <span class="token operator">=</span> localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">'token'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>token<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">return</span>  <span class="token boolean">true</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+			window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href  <span class="token operator">=</span>  <span class="token string">'/login'</span><span class="token punctuation">;</span>
+		<span class="token keyword">return</span>  <span class="token boolean">false</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="and-last-but-not-lease-protect-the-woman-and-children-aka-the-precious-routes">And last but not lease! protect the woman and children aka the precious routes!</h3>
+<pre class=" language-js"><code class="prism  language-js"><span class="token comment">// app.routes.ts</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Routes <span class="token punctuation">}</span> <span class="token keyword">from</span>  <span class="token string">'@angular/router'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> HomeComponent <span class="token punctuation">}</span> <span class="token keyword">from</span>  <span class="token string">'./home/home.component'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> AboutComponent <span class="token punctuation">}</span> <span class="token keyword">from</span>  <span class="token string">'./about/about.component'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> ContactComponent <span class="token punctuation">}</span> <span class="token keyword">from</span>  <span class="token string">'./contact/contact.component'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// import auth guard and login component</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> authGuard <span class="token punctuation">}</span> <span class="token keyword">from</span>  <span class="token string">'./auth.guard'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> LoginComponent <span class="token punctuation">}</span> <span class="token keyword">from</span>  <span class="token string">'./login/login.component'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Also create a login route and secure with [authGuard]!</span>
+<span class="token keyword">export</span>  <span class="token keyword">const</span>  routes<span class="token punctuation">:</span>  Routes  <span class="token operator">=</span> <span class="token punctuation">[</span>
+	<span class="token punctuation">{</span>
+	path<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+	redirectTo<span class="token punctuation">:</span> <span class="token string">'home'</span><span class="token punctuation">,</span>
+	pathMatch<span class="token punctuation">:</span> <span class="token string">'full'</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">{</span>
+	path<span class="token punctuation">:</span> <span class="token string">'home'</span><span class="token punctuation">,</span>
+	component<span class="token punctuation">:</span> HomeComponent
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">{</span>
+	path<span class="token punctuation">:</span> <span class="token string">'about'</span><span class="token punctuation">,</span>
+	component<span class="token punctuation">:</span> AboutComponent
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">{</span>
+	path<span class="token punctuation">:</span> <span class="token string">'contact'</span><span class="token punctuation">,</span>
+	canActivate<span class="token punctuation">:</span> <span class="token punctuation">[</span>authGuard<span class="token punctuation">]</span><span class="token punctuation">,</span>
+	component<span class="token punctuation">:</span> ContactComponent
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">{</span>
+	path<span class="token punctuation">:</span> <span class="token string">'login'</span><span class="token punctuation">,</span>
+	component<span class="token punctuation">:</span> LoginComponent
+	<span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+<p>By understanding and implementing these concepts, you can create a robust and very secure login system in Angular using Guards and localstorage…</p>
+<pre class=" language-javascript"><code class="prism  language-javascript"><span class="token punctuation">(</span>C<span class="token punctuation">)</span> <span class="token keyword">private</span> <span class="token function-variable function">SyntraPXL</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">2023</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token string">"De Nittis Massimo"</span>
+</code></pre>
+</div>
+</body>
+
+</html>
