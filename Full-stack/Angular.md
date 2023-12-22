@@ -37,13 +37,16 @@ Eventbinding: (click)
 Attribute binding: value (using NgModel)
 Components/routing
 `<router-outlet>` gaat in de root
-3 componenten nodig
+3 componenten nodig (in ons voorbeeld)
+de ``ng generate component`` wordt afgekort als `ng g c` dit voeren we uit in de top-directory en hij zet deze automatisch juist
 ```gitBash
 ng g c home
 ng g c about
 ng g c contact
 ```
 
+Er zijn voor sommige features modules nodig (bijv forms-module, common-module, etc...)
+[Angular Modules](https://angular.dev/guide/ngmodules/module-types)
 
 Routes voor navigatie
 ```TypeScript
@@ -121,6 +124,7 @@ export class HomeComponent {
 Daarna kun je in de home.component.html de inhoud van todos ophalen met {{todos}}
 
 Voor het itereren van de array kunnen we dan de volgende code gebruiken in home.component.html
+de for in angular is een @for
 ``` 
 @for(todo of todos; track todo.id){
 	<li>{{todo.title}} - {{todo.owner}}</li>
@@ -231,7 +235,7 @@ vb:
 ![[Pasted image 20231213094433.png]]
 (zie ook code Massimo)
 => dan ga je naar je component.ts van het element waar je die service wilt gebruiken
-=> 
+=> dit zijn een vorm van classes
 ```typescript
 //bij imports voeg je dan de module toe
 import {usersService} from '../shared/users.service';
@@ -254,3 +258,5 @@ dit doe je gewoonlijk voor elke databasetabel  als je met grotere apps bezig ben
 [[Oefening 1 Angular]]
 
 [[Guards & Authorization]]
+
+[[PHP basics]]

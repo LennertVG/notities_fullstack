@@ -13,19 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Hashing.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "1f3ec9aea2387b17",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Stage/Stage.md",
+                "file": "PHP basics.md",
                 "mode": "source",
                 "source": false
               }
@@ -35,15 +23,24 @@
             "id": "b2aebb56399cc66f",
             "type": "leaf",
             "state": {
+              "type": "graph",
+              "state": {}
+            }
+          },
+          {
+            "id": "022b01032adc8a9b",
+            "type": "leaf",
+            "state": {
               "type": "markdown",
               "state": {
-                "file": "CURSUSSEN Front-End.md",
+                "file": "Eindproef-Front-End.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -119,7 +116,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Hashing.md",
+                "file": "Eindproef-Front-End.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -136,7 +133,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Hashing.md",
+                "file": "Eindproef-Front-End.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -159,7 +156,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Hashing.md"
+                "file": "Eindproef-Front-End.md"
               }
             }
           }
@@ -180,16 +177,19 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "3a44f89ae52ae598",
+  "active": "022b01032adc8a9b",
   "lastOpenFiles": [
-    "Guards & Authorization.md",
-    "Hashing.md",
-    "js_angular_guard_login (1) 1.html",
+    "Pasted image 20231222105954.png",
+    "Eindproef-Front-End.md",
     "CURSUSSEN Front-End.md",
-    "js_angular_guard_login (1).html",
-    "Angular.md",
-    "Ondernemerschap/Ondernemerschap.md",
+    "PHP basics.md",
     "Stage/Stage.md",
+    "Angular.md",
+    "Hashing.md",
+    "Guards & Authorization.md",
+    "js_angular_guard_login (1) 1.html",
+    "js_angular_guard_login (1).html",
+    "Ondernemerschap/Ondernemerschap.md",
     "Oefening 1 Angular.md",
     "Mailing.md",
     "Echte RestAPI.md",
@@ -216,10 +216,7 @@
     "git.ignore",
     "Javascript Basis.md",
     "RestAPI.md",
-    "Opdracht ToDo API.md",
     "Angular_Syntra_1_15.pdf",
-    "motivatiebrief Fenego.md",
-    "motivatiebrief Expliciet.md",
     "Pasted image 20231206100816.png",
     "Pasted image 20231205124015.png",
     "frontend-architecture.pdf",
